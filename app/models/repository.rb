@@ -6,8 +6,8 @@ class Repository < ActiveRecord::Base
   end
 
   def log
-    raw_log.split('\n').map do |raw_commit|
-      commit = raw_commit.split('||')
+    raw_log.each_line.map do |raw_commit|
+      commit = raw_commit.split('|')
       {
         committed_at: commit[0],
         author: {
@@ -19,6 +19,6 @@ class Repository < ActiveRecord::Base
   end
 
   def raw_log
-    `cd /tmp/repositories/#{id} && git log --format='%cd||%aN||%ae||%s'`
+    `cd /tmp/repositories/#{id} && git log --pretty="%cd|%aN|%ae|%s"`
   end
 end
