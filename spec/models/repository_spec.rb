@@ -7,8 +7,14 @@ RSpec.describe Repository, type: :model do
 
   describe "#clone" do
     it "clones the repository via system" do
-      expect(subject).to receive(:system).with("git clone #{subject.url} ./tmp/repositories/#{subject.id}")
+      expect(subject).to receive(:system).with("git clone #{subject.url} /tmp/repositories/#{subject.id}").and_call_original
       subject.clone
+    end
+  end
+
+  describe "#log" do
+    it "returns an array" do
+      expect(subject.log.class).to eq(Array)
     end
   end
 end
