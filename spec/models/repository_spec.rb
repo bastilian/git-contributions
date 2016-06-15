@@ -16,5 +16,16 @@ RSpec.describe Repository, type: :model do
     it "returns an array" do
       expect(subject.log.class).to eq(Array)
     end
+
+    it "contains a Hash for each commit" do
+      expect(subject.log.first.class).to eq(Hash)
+    end
+
+    it "contains a committed_at date and author with email and name" do
+      expect(subject.log.first[:committed_at].class).to eq(DateTime)
+      expect(subject.log.first[:author]).to_not be_nil
+      expect(subject.log.first[:author][:email]).to_not be_nil
+      expect(subject.log.first[:author][:name]).to_not be_nil
+    end
   end
 end
