@@ -5,6 +5,8 @@ RSpec.describe Repository, type: :model do
 
   expect_it { to validate_presence_of :url }
 
+  expect_it { to have_many :commits }
+
   describe "#clone" do
     it "clones the repository via system" do
       expect(subject).to receive(:system).with("git clone #{subject.url} /tmp/repositories/#{subject.id}").and_call_original

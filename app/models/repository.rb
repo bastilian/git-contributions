@@ -1,6 +1,8 @@
 class Repository < ActiveRecord::Base
   validates_presence_of :url
 
+  has_many :commits
+
   def clone
     system("git clone #{url} /tmp/repositories/#{id}")
   end
