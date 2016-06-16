@@ -7,14 +7,22 @@ class Repository < ActiveRecord::Base
     system("git clone #{url} /tmp/repositories/#{id}")
   end
 
+  def import
+    log.each do |commit|
+      commits.create(commit)
+    end
+  end
+
   def log
     raw_log.each_line.map do |raw_commit|
       commit = raw_commit.split('|')
       {
         committed_at: DateTime.parse(commit[0]),
-        author: {
+        author_attributes: {
           name: commit[1],
-          email: commit[2]
+          emails_attributes: [
+            address: commit[2]
+          ]
         }
       }
     end

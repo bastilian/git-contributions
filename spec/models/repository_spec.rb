@@ -27,9 +27,17 @@ RSpec.describe Repository, type: :model do
 
     it 'contains a committed_at date and author with email and name' do
       expect(subject.log.first[:committed_at].class).to eq(DateTime)
-      expect(subject.log.first[:author]).to_not be_nil
-      expect(subject.log.first[:author][:email]).to_not be_nil
-      expect(subject.log.first[:author][:name]).to_not be_nil
+      expect(subject.log.first[:author_attributes]).to_not be_nil
+      expect(subject.log.first[:author_attributes][:emails_attributes]).to_not be_nil
+      expect(subject.log.first[:author_attributes][:name]).to_not be_nil
+    end
+  end
+
+  describe '#import' do
+    it 'creates commits for each entry in #log' do
+      expect do
+        subject.import
+      end.to change(Commit, :count).by(subject.log.length)
     end
   end
 end

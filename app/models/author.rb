@@ -5,4 +5,6 @@ class Author < ActiveRecord::Base
   has_many :emails
   has_many :commits
   has_many :repositories, through: :commits
+
+  accepts_nested_attributes_for :emails
 end
