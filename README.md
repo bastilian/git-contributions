@@ -1,10 +1,12 @@
 # GitHub Contributions Graph
 
+![](https://inch-ci.org/github/bastilian/git-contributions.svg?branch=master)
+
 A clone of GitHub's contribution graph.
 
 ## Documentation
 
-Generate code documentation with:
+Generate [code documentation](http://www.rubydoc.info/github/bastilian/git-contributions/master) with:
 
 ```shell
 $ rake yard
