@@ -1,3 +1,4 @@
+# Commit in a repository, by an author
 class Commit < ActiveRecord::Base
   belongs_to :author
   belongs_to :repository
