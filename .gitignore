@@ -16,3 +16,7 @@
 !/log/.keep
 /tmp/*
 !/tmp/.keep
+
+# Ignore generated documentation and YARD cache
+/.yardoc
+/doc

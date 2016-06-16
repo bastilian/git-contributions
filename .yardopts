@@ -1,0 +1,6 @@
+--plugin rails-pack
+"{lib,app}/**/*.rb"
+"spec/{models,controllers,logic,routing,mailers,lib,observers,serializers}/**/*.rb"
+"{spec/alfreds}/**/*.rb"
+"db/schema.rb"
+- '*.md'

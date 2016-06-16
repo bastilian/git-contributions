@@ -45,4 +45,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'yard-rails-pack', git: 'https://github.com/badgerhq/yard-rails-pack.git', require: false
 end
