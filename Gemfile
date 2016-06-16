@@ -6,6 +6,9 @@ gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Ruby-Git to work with local git repositories
+gem 'git'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
