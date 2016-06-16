@@ -1,6 +1,7 @@
 # GitHub Contributions Graph
 
-![](https://inch-ci.org/github/bastilian/git-contributions.svg?branch=master)
+![Travis CI](https://travis-ci.org/bastilian/git-contributions.svg?branch=master)
+![Inch CI](https://inch-ci.org/github/bastilian/git-contributions.svg?branch=master)
 
 A clone of GitHub's contribution graph.
 
