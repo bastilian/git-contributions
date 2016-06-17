@@ -4,8 +4,7 @@ RSpec.describe Repository, type: :model do
   subject { FactoryGirl.create(:repository) }
 
   expect_it { to validate_presence_of :url }
-
-  expect_it { to have_many :commits }
+  expect_it { to have_many(:commits).dependent(:destroy) }
 
   describe '#clone' do
     it 'clones the repository via system' do
