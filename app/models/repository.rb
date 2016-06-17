@@ -35,9 +35,4 @@ class Repository < ActiveRecord::Base
       }
     end
   end
-
-  # Returns the git commit log as a String
-  def raw_log
-    `cd /tmp/repositories/#{id} && git log --pretty="%cd|%aN|%ae|%s"`
-  end
 end
