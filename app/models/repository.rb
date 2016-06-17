@@ -23,14 +23,13 @@ class Repository < ActiveRecord::Base
 
   # Returns an array of commit log entries from a raw git log
   def log
-    raw_log.each_line.map do |raw_commit|
-      commit = raw_commit.split('|')
+    local.log.map do |commit|
       {
-        committed_at: DateTime.parse(commit[0]),
+        committed_at: commit.date.to_datetime,
         author_attributes: {
-          name: commit[1],
+          name: commit.author.name,
           emails_attributes: [
-            address: commit[2]
+            address: commit.author.email
           ]
         }
       }
