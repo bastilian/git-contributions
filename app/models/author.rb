@@ -7,4 +7,8 @@ class Author < ActiveRecord::Base
   has_many :repositories, through: :commits
 
   accepts_nested_attributes_for :emails
+
+  scope :with_email, -> (address) do
+    joins(:emails).where('emails.address = ?', address)
+  end
 end

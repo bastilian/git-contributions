@@ -37,4 +37,7 @@ group :development, :test do
 
   # Speeding up development with Spring
   gem 'spring'
+
+  # Database cleanup for specs
+  gem 'database_cleaner'
 end
