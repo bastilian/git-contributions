@@ -9,6 +9,11 @@ class Repository < ActiveRecord::Base
     system("git clone #{url} /tmp/repositories/#{id}")
   end
 
+  # Opens the local repository clone and returns a Git::Base
+  def local
+    @local ||= Git.open("/tmp/repositories/#{id}")
+  end
+
   # Imports commits from log entries
   def import
     log.each do |commit|

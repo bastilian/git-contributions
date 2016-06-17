@@ -16,6 +16,12 @@ RSpec.describe Repository, type: :model do
     end
   end
 
+  describe '#local' do
+    it 'opens the local repo and returns Git::Base' do
+      expect(subject.local.class).to eq(Git::Base)
+    end
+  end
+
   describe '#log' do
     it 'returns an array' do
       expect(subject.log.class).to eq(Array)
