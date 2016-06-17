@@ -5,6 +5,11 @@
 
 An embeddable clone of GitHub's contribution graph.
 
+## Requirements
+
+ * Ruby 2.2.3
+ * Git 2.5.3
+
 ## Installation
 
 ```shell
