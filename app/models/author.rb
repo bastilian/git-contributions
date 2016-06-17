@@ -9,6 +9,6 @@ class Author < ActiveRecord::Base
   accepts_nested_attributes_for :emails
 
   scope :with_email, -> (address) do
-    joins(:emails).where('emails.address = ?', address)
+    joins(:emails).where(emails: { address: address })
   end
 end
