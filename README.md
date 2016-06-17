@@ -5,6 +5,16 @@
 
 An embeddable clone of GitHub's contribution graph.
 
+## Installation
+
+```shell
+$ git clone https://github.com/bastilian/git-contributions.git
+$ cd git-contributions
+$ bundle install
+$ rails s # Start webserver
+$ rake    # Run specs
+```
+
 ## Documentation
 
 Generate [code documentation](http://www.rubydoc.info/github/bastilian/git-contributions/master) with:
