@@ -17,7 +17,10 @@ class Repository < ActiveRecord::Base
   # Imports commits from log entries
   def import
     log.each do |commit|
-      commits.create(commit)
+      commit = commits.create(commit)
+      author = Author.with_email(commit.author.emails.first.address).first
+      commit.author = author if author
+      commit.save!
     end
   end
 
