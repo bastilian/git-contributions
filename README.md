@@ -1,4 +1,4 @@
-# GitHub Contributions Graph
+# Git Contributions Graph
 
 [![Travis CI](https://travis-ci.org/bastilian/git-contributions.svg?branch=master)](https://travis-ci.org/bastilian/git-contributions)
 [![Inch CI](https://inch-ci.org/github/bastilian/git-contributions.svg?branch=master)](https://inch-ci.org/github/bastilian/git-contributions)
