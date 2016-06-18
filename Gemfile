@@ -44,3 +44,5 @@ group :development, :test do
   # Database cleanup for specs
   gem 'database_cleaner'
 end
+
+gem "codeclimate-test-reporter", group: :test, require: nil
