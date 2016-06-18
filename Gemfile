@@ -34,15 +34,22 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
 
+  # Speeding up development with Spring
+  gem 'spring'
+
+  # Guard for automation
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+end
+
+group :test do
   # RSpec for testing
   gem 'rspec-rails', '~> 3.4'
   gem 'shoulda-matchers', '~> 3.1'
 
-  # Speeding up development with Spring
-  gem 'spring'
-
-  # Database cleanup for specs
+  # Database cleanup
   gem 'database_cleaner'
-end
 
-gem "codeclimate-test-reporter", group: :test, require: nil
+  gem 'codeclimate-test-reporter', require: nil
+end
