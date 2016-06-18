@@ -220,7 +220,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   puma
   rails (= 4.2.6)
-  rb-fsevent
   rspec-rails (~> 3.4)
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
