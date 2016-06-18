@@ -44,5 +44,13 @@ RSpec.describe Repository, type: :model do
         subject.import
       end.to change(Commit, :count).by(subject.log.length)
     end
+
+    it 'does not import commits twice' do
+      subject.import
+
+      expect do
+        subject.import
+      end.not_to change(Commit, :count)
+    end
   end
 end
