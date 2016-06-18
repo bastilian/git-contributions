@@ -32,6 +32,8 @@ RSpec.describe Repository, type: :model do
 
     it 'contains a committed_at date and author with email and name' do
       expect(subject.log.first[:committed_at].class).to eq(DateTime)
+      expect(subject.log.first[:deletions].class).to eq(Fixnum)
+      expect(subject.log.first[:additions].class).to eq(Fixnum)
       expect(subject.log.first[:author_attributes]).to_not be_nil
       expect(subject.log.first[:author_attributes][:emails_attributes]).to_not be_nil
       expect(subject.log.first[:author_attributes][:name]).to_not be_nil
