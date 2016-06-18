@@ -18,6 +18,9 @@ gem 'uglifier', '>= 1.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+# Simple form to build forms
+gem 'simple_form'
+
 # YARD for documentation
 gem 'yard-rails-pack', git: 'https://github.com/badgerhq/yard-rails-pack.git', require: false
 
