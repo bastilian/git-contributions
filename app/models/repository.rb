@@ -28,6 +28,7 @@ class Repository < ActiveRecord::Base
   def log
     local.log.map do |commit|
       {
+        sha: commit.sha,
         committed_at: commit.date.to_datetime,
         author_attributes: {
           name: commit.author.name,
