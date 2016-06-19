@@ -1,6 +1,6 @@
 class CommitsController < ApplicationController
-  before_action :set_repository
   before_action :set_commit, only: [:show]
+  prepend_before_action :set_repository
 
   # GET /repositories/repository_id/commits
   # GET /repositories/repository_id/commits.json
