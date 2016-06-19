@@ -40,7 +40,6 @@ group :development, :test do
   # Guard for automation
   gem 'guard'
   gem 'guard-rspec'
-  gem 'guard-rails', require: false
 
   # Pry for a better console
   gem 'pry-rails'
