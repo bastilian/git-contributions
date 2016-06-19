@@ -41,6 +41,10 @@ group :development, :test do
   # Speeding up development with Spring
   gem 'spring'
 
+  # RSpec for testing
+  gem 'rspec-rails', '~> 3.4'
+  gem 'shoulda-matchers', '~> 3.1'
+
   # Guard for automation
   gem 'guard'
   gem 'guard-rspec'
@@ -50,10 +54,6 @@ group :development, :test do
 end
 
 group :test do
-  # RSpec for testing
-  gem 'rspec-rails', '~> 3.4'
-  gem 'shoulda-matchers', '~> 3.1'
-
   # Database cleanup
   gem 'database_cleaner'
 
