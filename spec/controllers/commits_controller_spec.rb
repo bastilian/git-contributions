@@ -4,7 +4,6 @@ RSpec.describe CommitsController, type: :controller do
   let(:repository) { FactoryGirl.create(:repository) }
 
   before do
-    repository.save!
     repository.import
   end
 
