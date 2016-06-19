@@ -6,3 +6,5 @@ Rails.application.load_tasks
 
 require 'yard'
 YARD::Rake::YardocTask.new
+
+require 'resque/tasks'

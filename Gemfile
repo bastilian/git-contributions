@@ -26,6 +26,10 @@ gem 'yard-rails-pack', git: 'https://github.com/badgerhq/yard-rails-pack.git', r
 
 gem 'puma'
 
+# Resque for background jobs
+gem 'resque'
+gem 'mono_logger'
+
 group :development, :test do
   # For debugging
   gem 'byebug'

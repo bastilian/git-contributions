@@ -1,18 +1,37 @@
 version: '2'
 services:
+  redis:
+    image: redis
+
   application:
     build: .
+    environment:
+      - RAILS_ENV=development
+      - REDIS_HOST=redis:6379
+    volumes:
+      - .:/contributions
 
   web:
     extends: application
+    depends_on:
+      - redis
+      - worker
     command: bin/rails s -p 3000 -b 0.0.0.0
-    volumes:
-      - .:/contributions
     ports:
       - "80:3000"
 
+  worker:
+    extends: application
+    depends_on:
+      - redis
+    environment:
+      - QUEUE=*
+    command: bin/rake environment resque:work
+
   tests:
     extends: application
+    depends_on:
+      - redis
+    environment:
+      - RAILS_ENV=test
     command: bundle exec guard -g rspec
-    volumes:
-      - .:/contributions
