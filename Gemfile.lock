@@ -77,6 +77,9 @@ GEM
       shellany (~> 0.0)
       thor (>= 0.18.1)
     guard-compat (1.2.1)
+    guard-rails (0.7.2)
+      guard (~> 2.11)
+      guard-compat (~> 1.0)
     guard-rspec (4.7.2)
       guard (~> 2.1)
       guard-compat (~> 1.1)
@@ -216,6 +219,7 @@ DEPENDENCIES
   faker
   git
   guard
+  guard-rails
   guard-rspec
   jbuilder (~> 2.0)
   puma
