@@ -3,6 +3,7 @@ class Repository < ActiveRecord::Base
   validates_presence_of :url
 
   has_many :commits, dependent: :destroy
+  has_many :authors, through: :commits
 
   # Clones a repository from a git url/path
   def clone

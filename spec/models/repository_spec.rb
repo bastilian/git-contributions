@@ -5,6 +5,7 @@ RSpec.describe Repository, type: :model do
 
   expect_it { to validate_presence_of :url }
   expect_it { to have_many(:commits).dependent(:destroy) }
+  expect_it { to have_many(:authors) }
 
   describe '#clone' do
     it 'clones the repository via system' do
