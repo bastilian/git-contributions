@@ -41,6 +41,9 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-rails', require: false
+
+  # Pry for a better console
+  gem 'pry-rails'
 end
 
 group :test do
