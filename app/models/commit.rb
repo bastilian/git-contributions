@@ -14,8 +14,8 @@ class Commit < ActiveRecord::Base
       {
         sha: commit.sha,
         committed_at: commit.date.to_datetime,
-        deletions: commit.diff_parent.stats[:deletions].to_i,
-        additions: commit.diff_parent.stats[:additions].to_i,
+        deletions: commit.diff_parent.stats[:total][:deletions].to_i,
+        additions: commit.diff_parent.stats[:total][:additions].to_i,
         author_attributes: {
           name: commit.author.name,
           emails_attributes: [
