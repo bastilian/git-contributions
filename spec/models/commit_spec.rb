@@ -11,7 +11,7 @@ RSpec.describe Commit, type: :model do
   expect_it { to validate_uniqueness_of :sha }
 
   describe '.attributes_from_git_commit' do
-    subject { Commit.attributes_from_git_commit(log.first) }
+    subject { Commit.attributes_from_git_commit(log.to_a.sample) }
 
     it 'contains a committed_at date and author with email and name' do
       expect(subject[:committed_at].class).to eq(DateTime)
@@ -24,7 +24,7 @@ RSpec.describe Commit, type: :model do
   end
 
   describe '.create_from_git_commit' do
-    let(:commit) { log.first }
+    let(:commit) { log.to_a.sample }
     it 'gets attributes via attributes_from_git_commit' do
       expect(Commit).to receive(:attributes_from_git_commit).with(commit).and_call_original
 
