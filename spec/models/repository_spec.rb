@@ -26,7 +26,7 @@ RSpec.describe Repository, type: :model do
     it 'creates commits for each entry in #log' do
       expect do
         subject.import
-      end.to change(Commit, :count).by(subject.local.log.size)
+      end.to change(Commit, :count).by(subject.local.log(nil).size)
     end
 
     it 'does not import commits twice' do

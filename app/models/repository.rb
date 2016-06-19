@@ -17,7 +17,7 @@ class Repository < ActiveRecord::Base
 
   # Imports commits from log entries
   def import
-    local.log.each do |commit|
+    local.log(nil).each do |commit|
       next if Commit.where(sha: commit.sha).first
       commit = commits.create_from_git_commit(commit)
       commit.save!
