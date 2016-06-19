@@ -5,6 +5,10 @@ class Repository < ActiveRecord::Base
   has_many :commits, dependent: :destroy
   has_many :authors, through: :commits
 
+  after_create do
+    RepositoryImportJob.perform_later(self)
+  end
+
   # Clones a repository from a git url/path
   def clone
     system("git clone #{url} /tmp/repositories/#{id}")
