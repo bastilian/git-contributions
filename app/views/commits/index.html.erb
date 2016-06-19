@@ -1,0 +1,6 @@
+<h1>Listing Commits</h1>
+<ul>
+  <% @commits.each do |commit| %>
+    <li><%= commit.sha %></li>
+  <% end %>
+</ul>
