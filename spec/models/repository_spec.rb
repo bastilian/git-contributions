@@ -16,8 +16,8 @@ RSpec.describe Repository, type: :model do
 
   describe '#clone' do
     it 'clones the repository via system' do
-      expect(subject).to receive(:system)
-        .with("git clone #{subject.url} /tmp/repositories/#{subject.id}").and_call_original
+      expect(subject).to receive(:cloned?).and_return(false)
+      expect(Git).to receive(:clone).with(subject.url, subject.local_path).and_return(true)
 
       subject.clone
     end
