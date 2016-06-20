@@ -15,9 +15,26 @@ RSpec.describe Repository, type: :model do
   end
 
   describe '#clone' do
-    it 'clones the repository via system' do
+    it 'clones the repository if it is not already' do
       expect(subject).to receive(:cloned?).and_return(false)
       expect(Git).to receive(:clone).with(subject.url, subject.local_path).and_return(true)
+
+      subject.clone
+    end
+
+    it 'clones the repository if it is cloned, but local init fails' do
+      expect(subject).to receive(:local).and_return(false)
+      expect(subject).to receive(:cloned?).and_return(true)
+
+      expect(Git).to receive(:clone).with(subject.url, subject.local_path).and_return(true)
+
+      subject.clone
+    end
+
+    it 'does not clone the repository if it exists and local is available' do
+      expect(subject).to receive(:cloned?).and_return(true)
+      expect(subject).to receive(:local).twice.and_return(true)
+      expect(Git).to_not receive(:clone)
 
       subject.clone
     end

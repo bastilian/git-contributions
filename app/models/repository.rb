@@ -16,7 +16,7 @@ class Repository < ActiveRecord::Base
 
   # Clones a repository from a git url/path
   def clone
-    cloned? ? local : Git.clone(url, local_path)
+    cloned? && local ? local : Git.clone(url, local_path)
   end
 
   # Returns wether or not the repository is already cloned
