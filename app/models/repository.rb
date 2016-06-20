@@ -6,6 +6,8 @@ class Repository < ActiveRecord::Base
   has_many :commits, dependent: :destroy
   has_many :authors, through: :commits
 
+  before_validation :set_name_and_organization_from_url
+
   after_create do
     RepositoryImportJob.perform_later(self)
   end
@@ -28,4 +30,9 @@ class Repository < ActiveRecord::Base
       commit.save!
     end
   end
+
+  def set_name_and_organization_from_url
+    self.organization, self.name = (url || '').scan(/^https?:\/\/github\.com\/([\w-]*)\/+([\w-]*)/).flatten
+  end
+
 end
