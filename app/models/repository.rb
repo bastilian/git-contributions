@@ -12,6 +12,8 @@ class Repository < ActiveRecord::Base
     RepositoryImportJob.perform_later(self)
   end
 
+  after_destroy :remove_clone
+
   # Clones a repository from a git url/path
   def clone
     cloned? ? local : Git.clone(url, local_path)
@@ -45,4 +47,7 @@ class Repository < ActiveRecord::Base
     self.organization, self.name = (url || '').scan(/^https?:\/\/github\.com\/([\w-]*)\/+([\w-]*)/).flatten
   end
 
+  def remove_clone
+    FileUtils.rmdir(local_path)
+  end
 end
