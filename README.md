@@ -1,6 +1,7 @@
 # Git Contributions Graph
 
 [![Travis CI](https://travis-ci.org/bastilian/git-contributions.svg?branch=master)](https://travis-ci.org/bastilian/git-contributions)
+[![Test Coverage](https://codeclimate.com/github/bastilian/git-contributions/badges/coverage.svg)](https://codeclimate.com/github/bastilian/git-contributions/coverage)
 [![Inch CI](https://inch-ci.org/github/bastilian/git-contributions.svg?branch=master)](https://inch-ci.org/github/bastilian/git-contributions)
 
 An embeddable clone of GitHub's contribution graph.
