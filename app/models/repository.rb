@@ -27,6 +27,8 @@ class Repository < ActiveRecord::Base
   # Opens the local repository clone and returns a Git::Base
   def local
     @local ||= Git.open(local_path)
+  rescue
+    false
   end
 
   # Returns a path composed of storage path, organization and name

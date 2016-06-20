@@ -27,6 +27,11 @@ RSpec.describe Repository, type: :model do
     it 'opens the local repo and returns Git::Base' do
       expect(subject.local.class).to eq(Git::Base)
     end
+
+    it 'returns false if local init fails' do
+      expect(subject).to receive(:local_path).at_least(1).and_return('/dev/null')
+      expect(subject.local).to eq(false)
+    end
   end
 
   describe '#import' do
