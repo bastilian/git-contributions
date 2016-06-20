@@ -8,6 +8,7 @@ services:
     environment:
       - RAILS_ENV=development
       - REDIS_HOST=redis:6379
+      - STORAGE=/tmp/repositories
     volumes:
       - .:/contributions
 
@@ -34,4 +35,5 @@ services:
       - redis
     environment:
       - RAILS_ENV=test
+      - STORAGE=/tmp/test/repositories
     command: bundle exec guard -g rspec

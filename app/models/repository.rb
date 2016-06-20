@@ -20,6 +20,10 @@ class Repository < ActiveRecord::Base
   # Opens the local repository clone and returns a Git::Base
   def local
     @local ||= Git.open("/tmp/repositories/#{id}")
+
+  # Returns a path composed of storage path, organization and name
+  def local_path
+    "#{ENV['STORAGE']}/#{organization}/#{name}/"
   end
 
   # Imports commits from log entries

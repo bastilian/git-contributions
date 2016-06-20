@@ -4,8 +4,15 @@ RSpec.describe Repository, type: :model do
   subject { FactoryGirl.create(:repository) }
 
   expect_it { to validate_presence_of :url }
+
   expect_it { to have_many(:commits).dependent(:destroy) }
   expect_it { to have_many(:authors) }
+
+  describe '#local_path' do
+    it 'returns a path for the repository' do
+      expect(subject.local_path).to eq("#{ENV['STORAGE']}/#{subject.organization}/#{subject.name}/")
+    end
+  end
 
   describe '#clone' do
     it 'clones the repository via system' do
