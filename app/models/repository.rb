@@ -1,6 +1,7 @@
 # Repository Model that holds all the commits
 class Repository < ActiveRecord::Base
   validates_presence_of :url
+  validates :url, url: true
 
   has_many :commits, dependent: :destroy
   has_many :authors, through: :commits
