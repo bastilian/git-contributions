@@ -5,6 +5,8 @@ services:
 
   application:
     build: .
+    env_file:
+      - .env
     environment:
       - RAILS_ENV=development
       - REDIS_HOST=redis:6379

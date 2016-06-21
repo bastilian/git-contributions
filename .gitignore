@@ -20,3 +20,4 @@
 # Ignore generated documentation and YARD cache
 /.yardoc
 /doc
+.env
