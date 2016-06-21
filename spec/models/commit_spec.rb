@@ -11,7 +11,8 @@ RSpec.describe Commit, type: :model do
   expect_it { to validate_uniqueness_of :sha }
 
   describe '.attributes_from_git_commit' do
-    subject { Commit.attributes_from_git_commit(log.to_a.sample) }
+    let(:log_entry) { log.to_a.sample }
+    subject { Commit.attributes_from_git_commit(log_entry) }
 
     it 'contains a committed_at date and author with email and name' do
       expect(subject[:committed_at].class).to eq(DateTime)
@@ -20,6 +21,13 @@ RSpec.describe Commit, type: :model do
       expect(subject[:author_attributes]).to_not be_nil
       expect(subject[:author_attributes][:emails_attributes]).to_not be_nil
       expect(subject[:author_attributes][:name]).to_not be_nil
+    end
+
+    context 'when the commit date is empty' do
+      it 'will take the parent date' do
+        expect(log_entry).to receive(:date).and_return(nil)
+        expect(subject[:committed_at].class).to eq(DateTime)
+      end
     end
   end
 

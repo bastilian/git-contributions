@@ -13,7 +13,7 @@ class Commit < ActiveRecord::Base
     def attributes_from_git_commit(commit)
       {
         sha: commit.sha,
-        committed_at: commit.date.to_datetime,
+        committed_at: (commit.date || commit.parent.date).to_datetime,
         deletions: commit.diff_parent.stats[:total][:deletions].to_i,
         additions: commit.diff_parent.stats[:total][:additions].to_i,
         author_attributes: {
