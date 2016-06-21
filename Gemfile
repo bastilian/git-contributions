@@ -26,8 +26,15 @@ gem 'yard-rails-pack', git: 'https://github.com/badgerhq/yard-rails-pack.git', r
 
 gem 'puma'
 
+# For Errbit error reporting
+gem 'airbrake', '~> 5.0'
+
+# Better log output
+gem 'lograge'
+
 # Resque for background jobs
 gem 'resque'
+gem 'resque-web', require: 'resque_web'
 gem 'mono_logger'
 
 group :development, :test do

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  if Rails.env.development?
-    require 'resque/server'
-    mount Resque::Server.new, at: '/resque'
+  if ENV['RESQUE_WEB_UI']
+    require 'resque_web'
+    mount ResqueWeb::Engine => '/resque'
   end
 
   resources :repositories do
